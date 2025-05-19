@@ -3,7 +3,7 @@
   "description": "Dry Redirects",
   "type": "library",
   "require": {
-    "tallieutallieu/oak": "^1.0.6"
+    "tallieutallieu/oak": "dev-php8.2"
   },
   "autoload": {
     "psr-4": {
