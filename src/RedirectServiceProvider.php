@@ -6,6 +6,7 @@ use dry\admin\Module;
 use dry\admin\Portal;
 use dry\http\Request;
 use dry\http\Response;
+use Oak\Application;
 use Oak\Contracts\Container\ContainerInterface;
 use Oak\Contracts\Dispatcher\DispatcherInterface;
 use Oak\Migration\MigrationManager;
@@ -23,7 +24,7 @@ use Tnt\Redirects\Revisions\CreateRedirectTable;
 class RedirectServiceProvider extends ServiceProvider
 {
     /**
-     * @param ContainerInterface $app
+     * @param Application $app
      * @return mixed|void
      */
     public function register(ContainerInterface $app)
@@ -49,7 +50,7 @@ class RedirectServiceProvider extends ServiceProvider
     }
 
     /**
-     * @param ContainerInterface $app
+     * @param Application $app
      * @return mixed|void
      */
     public function boot(ContainerInterface $app)
@@ -63,7 +64,7 @@ class RedirectServiceProvider extends ServiceProvider
             foreach (Redirect::getActiveRedirects() as $redirect) {
 
                 $resolvedParameterRedirect = str_replace('{', '(?<', $redirect->source_path);
-                $resolvedParameterRedirect = str_replace('}', '>.+)', $resolvedParameterRedirect);
+                $resolvedParameterRedirect = str_replace('}', '>[^/]+)', $resolvedParameterRedirect);
 
                 \dry\route\Router::register(null, null, [
 
