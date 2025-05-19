@@ -3,11 +3,18 @@
   "description": "Dry Redirects",
   "type": "library",
   "require": {
+    "tallieutallieu/dry": "^v3.1.0",
     "tallieutallieu/oak": "dev-php8.2"
   },
   "autoload": {
     "psr-4": {
       "Tnt\\Redirects\\": "src/"
     }
-  }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:tallieu/dry3.git"
+    }
+  ]
 }
