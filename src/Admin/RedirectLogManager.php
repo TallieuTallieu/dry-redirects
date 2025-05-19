@@ -7,6 +7,7 @@ use dry\admin\component\EnumView;
 use dry\admin\component\StringView;
 use dry\admin\Module;
 use dry\orm\action\Delete;
+use dry\orm\action\DeleteAll;
 use dry\orm\action\MultiDelete;
 use dry\orm\component\Pagination;
 use dry\orm\component\RowCheckbox;
@@ -29,8 +30,10 @@ class RedirectLogManager extends Manager
 
         $this->actions[] = $delete = new Delete();
         $this->actions[] = $multiDelete = new MultiDelete();
+        $this->actions[] = $deleteAll = new DeleteAll();
 
         $this->header[] = $multiDelete->create_link();
+        $this->header[] = $deleteAll->create_link();
 
         $this->footer[] = new Pagination();
 
