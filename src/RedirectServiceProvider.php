@@ -17,6 +17,7 @@ use Tnt\Redirects\Contracts\RedirectPortalInterface;
 use Tnt\Redirects\Events\RouteWasHit;
 use Tnt\Redirects\Model\Redirect;
 use Tnt\Redirects\Model\RedirectLog;
+use Tnt\Redirects\Repository\RedirectLogRepository;
 use Tnt\Redirects\Revisions\CreateRedirectLogTable;
 use Tnt\Redirects\Revisions\CreateRedirectTable;
 
@@ -122,6 +123,10 @@ class RedirectServiceProvider extends ServiceProvider
             $redirectLog->status_code = $redirect->status_code;
             $redirectLog->redirect = $redirect;
             $redirectLog->save();
+
+            if (RedirectLogRepository::count() > 20000) {
+                RedirectLogRepository::deleteAllBut(20000);
+            }
         });
     }
 }
