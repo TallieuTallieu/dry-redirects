@@ -62,9 +62,12 @@ class RedirectServiceProvider extends ServiceProvider
         try {
 
             foreach (Redirect::getActiveRedirects() as $redirect) {
-
                 $resolvedParameterRedirect = str_replace('{', '(?<', $redirect->source_path);
                 $resolvedParameterRedirect = str_replace('}', '>[^/]+)', $resolvedParameterRedirect);
+
+                if (substr($resolvedParameterRedirect, -1) !== '/') {
+                    $resolvedParameterRedirect .= '/';
+                }
 
                 \dry\route\Router::register(null, null, [
 
