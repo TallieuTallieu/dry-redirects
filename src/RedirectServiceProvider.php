@@ -127,10 +127,10 @@ class RedirectServiceProvider extends ServiceProvider
             $redirectLog->status_code = $redirect->status_code;
             $redirectLog->redirect = $redirect;
             $redirectLog->save();
-        });
 
-        if (RedirectLogRepository::count() > 20000) {
-            RedirectLogRepository::deleteAllBut(20000);
-        }
+            if (RedirectLogRepository::count() > 20000) {
+                RedirectLogRepository::deleteAllBut(20000);
+            }
+        });
     }
 }
