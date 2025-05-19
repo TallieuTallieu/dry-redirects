@@ -30,7 +30,8 @@ class RedirectManager extends Manager
         $this->actions[] = $create = new Create([
             new Stack(Stack::HORIZONTAL, [
                 new StringEdit('source_path', [
-                    'v8n_required',
+                  'v8n_required' => true,
+                  'handle_duplicate' => true,
                 ]),
                 new EnumEdit('status_code', Redirect::getEnumStatusCode()),
             ], [
