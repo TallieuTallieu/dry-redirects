@@ -29,7 +29,7 @@ class RedirectLogRepository
   */
   public static function deleteAllBut($count = 20000) {
     try {
-      $result = Connection::get()->query('SELECT id FROM redirects_redirect_log ORDER BY id DESC LIMIT 1 OFFSET ' . $count - 1);
+      $result = Connection::get()->query('SELECT id FROM redirects_redirect_log ORDER BY id DESC LIMIT 1 OFFSET ' . ($count - 1));
 
       if (!$result->valid()) {
         return true;
