@@ -21,6 +21,7 @@ use Tnt\Redirects\Model\RedirectLog;
 use Tnt\Redirects\Repository\RedirectLogRepository;
 use Tnt\Redirects\Revisions\CreateRedirectLogTable;
 use Tnt\Redirects\Revisions\CreateRedirectTable;
+use Tnt\Redirects\Revisions\UpdateRedirectTableAddUniqueSourcePath;
 
 class RedirectServiceProvider extends ServiceProvider
 {
@@ -39,6 +40,7 @@ class RedirectServiceProvider extends ServiceProvider
             $migrator->setRevisions([
                 CreateRedirectTable::class,
                 CreateRedirectLogTable::class,
+                UpdateRedirectTableAddUniqueSourcePath::class,
             ]);
 
             $app->get(MigrationManager::class)
