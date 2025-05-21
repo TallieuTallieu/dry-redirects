@@ -4,8 +4,8 @@
   "type": "library",
   "require": {
     "tallieutallieu/dry": "*",
-    "tallieutallieu/oak": "dev-php8.2",
-    "tallieutallieu/dry-dbi": "^1.0"
+    "tallieutallieu/oak": "*",
+    "tallieutallieu/dry-dbi": "*"
   },
   "autoload": {
     "psr-4": {
