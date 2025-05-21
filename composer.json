@@ -3,7 +3,7 @@
   "description": "Dry Redirects",
   "type": "library",
   "require": {
-    "tallieutallieu/dry": "^v3.1.0",
+    "tallieutallieu/dry": ">v3.0.0",
     "tallieutallieu/oak": "dev-php8.2",
     "tallieutallieu/dry-dbi": "^1.0"
   },
