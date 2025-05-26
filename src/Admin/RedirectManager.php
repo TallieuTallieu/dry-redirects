@@ -16,6 +16,7 @@ use dry\orm\component\Pagination;
 use dry\orm\Index;
 use dry\orm\Manager;
 use dry\orm\paginate\Paginator;
+use dry\orm\sort\StaticSorter;
 use Tnt\Redirects\Model\Redirect;
 
 class RedirectManager extends Manager
@@ -69,5 +70,7 @@ class RedirectManager extends Manager
         ] );
 
         $this->index->paginator = new Paginator(10);
+
+        $this->index->sorter = new StaticSorter('created', StaticSorter::DESC);
     }
 }
