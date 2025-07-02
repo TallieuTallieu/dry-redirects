@@ -13,7 +13,13 @@ class RedirectLogRepository
    */
   public static function count() {
     try {
-      $count = Connection::get()->query('SELECT COUNT(*) as count FROM redirects_redirect_log')->current()['count'];
+        $countQuery = Connection::get()->query('SELECT COUNT(*) as count FROM redirects_redirect_log');
+
+        if (empty($countQuery)) {
+            return 0;
+        }
+
+        return $countQuery->current()['count'];
       return $count;
     } catch (\Exception $e) {
       Debug::log('Could not count redirect_log', $e);
