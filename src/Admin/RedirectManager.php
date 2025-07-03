@@ -70,7 +70,6 @@ class RedirectManager extends Manager
         ] );
 
         $this->index->paginator = new Paginator(10);
-
         $this->index->sorter = new StaticSorter('created', StaticSorter::DESC);
     }
 }
