@@ -3,9 +3,9 @@
   "description": "Dry Redirects",
   "type": "library",
   "require": {
-    "tallieutallieu/dry": "*",
-    "tallieutallieu/oak": "*",
-    "tallieutallieu/dry-dbi": "*"
+    "tallieutallieu/dry": "3.*",
+    "tallieutallieu/oak": "3.*",
+    "tallieutallieu/dry-dbi": "3.*"
   },
   "autoload": {
     "psr-4": {
