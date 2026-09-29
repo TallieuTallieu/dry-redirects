@@ -3,9 +3,10 @@
   "description": "Dry Redirects",
   "type": "library",
   "require": {
-    "tallieutallieu/dry": "^3.0.0|^4.0.0",
-    "tallieutallieu/oak": "^3.0.0",
-    "tallieutallieu/dry-dbi": "3.*"
+    "php": "^8.4",
+    "tallieutallieu/dry": "^4.6.2",
+    "tallieutallieu/oak": "^4.3.0",
+    "tallieutallieu/dry-dbi": "^3.0.13"
   },
   "autoload": {
     "psr-4": {
